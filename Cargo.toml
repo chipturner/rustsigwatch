@@ -1,0 +1,40 @@
+[package]
+name = "rustsigwatch"
+version = "0.1.0"
+edition = "2021"
+authors = ["RustSigWatch Contributors"]
+description = "A high-performance BPF-based system monitoring tool for tracking signals and process events"
+license = "MIT"
+repository = "https://github.com/your-username/rustsigwatch"
+keywords = ["bpf", "monitoring", "signals", "process", "linux"]
+categories = ["development-tools::debugging", "os::linux-apis"]
+readme = "README.md"
+
+[[bin]]
+name = "rustsigwatch"
+path = "src/main.rs"
+
+[lib]
+name = "rustsigwatch"
+path = "src/lib.rs"
+
+[dependencies]
+aya = "0.12"
+aya-log = "0.2"
+clap = { version = "4", features = ["derive"] }
+tokio = { version = "1", features = ["macros", "rt", "rt-multi-thread", "net", "signal", "time"] }
+chrono = "0.4"
+log = "0.4"
+env_logger = "0.11"
+bytes = "1"
+libc = "0.2"
+anyhow = "1"
+thiserror = "1"
+
+[build-dependencies]
+
+[profile.release]
+panic = "abort"
+
+[profile.dev]
+panic = "abort"

@@ -1,0 +1,58 @@
+# Rust
+/target/
+**/*.rs.bk
+Cargo.lock
+
+# BPF compiled objects
+*.bpf.o
+*.o
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+
+# Runtime
+*.pid
+
+# Temporary files
+*.tmp
+*.temp
+
+# Build artifacts
+/build/
+/dist/
+
+# Coverage reports
+/coverage/
+*.profraw
+
+# Local configuration
+.env
+.env.local
+
+# Documentation builds
+/book/
+/docs/_build/
+
+# Backup files
+*.bak
+*.backup
+
+# Core dumps
+core
+*.core
