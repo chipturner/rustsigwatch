@@ -95,21 +95,6 @@ bpf_probe_read(&sig, sizeof(sig), (char *)ctx + 24); // args[1]
 - **Runtime Requirements**: Linux kernel 5.5+, root privileges for BPF loading
 - **Rust Framework**: aya 0.12 for BPF integration
 
-## Project Structure
-
-```
-src/
-├── main.rs              # Main application entry point
-├── lib.rs               # Library interface
-├── signals.rs           # Signal parsing and filtering
-├── bpf/
-│   ├── mod.rs           # BPF userspace integration
-│   └── sigwatch.bpf.c   # BPF kernel programs
-├── Cargo.toml           # Dependencies and build config
-├── build.rs             # BPF compilation script
-└── Makefile             # Development workflow automation
-```
-
 ## Key Design Decisions
 
 1. **aya-rs over libbpf-sys**: Better Rust integration and memory safety
@@ -121,7 +106,7 @@ src/
 ## Common Issues
 
 1. **Permission denied**: Tool requires sudo for BPF program loading
-2. **Missing clang**: Install development dependencies via `make install-deps`
+2. **Missing clang**: `just install-deps` prints the packages to install
 3. **Signal shows "UNKNOWN"**: Usually indicates BPF argument parsing issues
 4. **Large signal numbers**: Suggests incorrect memory offset in bpf_probe_read
 
@@ -129,7 +114,7 @@ src/
 
 Run the complete test suite with:
 ```bash
-make check  # Runs fmt + clippy + test
+just check  # Runs fmt + clippy + test
 ```
 
 The tool includes unit tests for signal parsing and filtering logic in `src/signals.rs`.
